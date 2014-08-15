@@ -93,30 +93,29 @@ exports.litecoin = {
   defaultClientPort: 9333
 };
 
-exports.darkcoin = {
-  name: 'darkcoin',
-  magic: hex('bf0c6bbd'),
-  addressVersion: 0x4C, // Starts with X
-  privKeyVersion: 204,
+exports.startcoin = {
+  name: 'startcoin',
+  magic: hex('ffc4badf'),
+  addressVersion: 0x7d, // Starts with s
+  privKeyVersion: 0xb0,
   P2SHVersion: 0x05,
-  bip32publicVersion: 0x0781b71e,
-  bip32privateVersion: 0x0781a3e4,
+  bip32publicVersion: 0x0291b71e,
+  bip32privateVersion: 0x0291a3e4,
   blockHashFunc: 'x11',
   genesisBlock: {
-    hash: hex('b67a40f3cd5804437a108f105533739c37e6229bc1adcab385140b59fd0f0000'),
-    merkle_root: hex('c762a6567f3cc092f0684bb62b7e00a84890b990f07cc71a6bb58d64b98e02e0'),
+    hash: hex('00000bb6b5dcf5e81dee7f18ebd51055228d5fb3e41cc62f4034488f8eaf4448'),
+    merkle_root: hex('b7828a1f391aa44b1d63cc5aecf80ba6f23f8018dcc136e4dca1859e105f9a87'),
     height: 0,
-    nonce: 28917698,
+    nonce: 1494132,
     version: 1,
     prev_hash: buffertools.fill(new Buffer(32), 0),
-    timestamp: 1390095618,
-    bits: 0x1e0ffff0
+    timestamp: 1405688500,
+    bits: 0x1e0fffff
   },
   dnsSeeds: [
-    'dnsseed.darkcoin.io',
-    'dnsseed.ddarkcoin.qa'
+    'dnsseed.startcoin.org'
   ],
-  defaultClientPort: 9999
+  defaultClientPort: 9247
 };
 
 // Currently we only use bitcon testnet
@@ -145,4 +144,4 @@ exports.testnet = {
   defaultClientPort: 18333
 };
 
-exports.supportedNetnames = ['bitcoin', 'litecoin', 'dogecoin', 'darkcoin'];
+exports.supportedNetnames = ['bitcoin', 'litecoin', 'dogecoin', 'startcoin'];
