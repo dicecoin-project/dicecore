@@ -11,7 +11,7 @@ var run = function() {
   console.log('1) Make new bip32 from randomly generated new seed');
 
   var randomBytes = crypto.randomBytes(256);
-  var bip32 = BIP32.seed(randomBytes, 'bitcoin');
+  var bip32 = BIP32.seed(randomBytes, 'startcoin');
   console.log('master extended private key: ' + bip32.extendedPrivateKeyString());
   console.log('master extended public key: ' + bip32.extendedPublicKeyString());
   console.log('m/0/3/5 extended private key: ' + bip32.derive('m/0/3/5').extendedPrivateKeyString());

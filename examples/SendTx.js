@@ -37,7 +37,7 @@ var run = function() {
   ];
 
   var peerman = new PeerManager({
-    network: 'testnet'
+    network: 'startcoin'
   });
   peerman.addPeer(new Peer('127.0.0.1', 18333));
 

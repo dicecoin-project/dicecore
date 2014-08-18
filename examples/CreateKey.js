@@ -8,7 +8,7 @@ var run = function() {
   var networks = require('../networks');
   var WalletKey = bitcore.WalletKey;
 
-  var opts = {network: networks.testnet};
+  var opts = {network: networks.startcoin};
 
   function print(wk) {
 

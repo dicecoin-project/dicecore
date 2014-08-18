@@ -7,6 +7,7 @@ var run = function() {
   var Key = bitcore.Key;
   var Address = bitcore.Address;
 
+
   // config your regular expression
   var re = /[0-9]{6}$/; // ends in 6 digits
 

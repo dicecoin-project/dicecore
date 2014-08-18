@@ -9,7 +9,7 @@ var run = function() {
   var buffertools = bitcore.buffertools;
   var Address = bitcore.Address;
   var util = bitcore.util;
-  var opts = {network: networks.testnet};
+  var opts = {network: networks.startcoin};
 
   var p = console.log;
 

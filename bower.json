@@ -1,5 +1,5 @@
 {
-  "name": "bitcore",
+  "name": "startcore",
   "main": "browser/bundle.js",
   "version": "0.1.18",
   "homepage": "http://bitcore.io",

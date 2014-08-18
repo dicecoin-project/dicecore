@@ -4,14 +4,14 @@ var run = function() {
   // Replace '../bitcore' with 'bitcore' if you use this code elsewhere.
   var bitcore = require('../bitcore');
   var RpcClient = bitcore.RpcClient;
-  var hash = '0000000000b6288775bbd326bedf324ca8717a15191da58391535408205aada4';
+  var hash = '0000000000f4859dc879f19a0c50636a0cc04424da29f66e5e79113cf3389aa4';
 
   var config = {
     protocol: 'http',
-    user: 'user',
-    pass: 'pass',
-    host: '127.0.0.1',
-    port: '18332',
+    user: 'startcoinrpc',
+    pass: 'password',
+    host: '10.211.55.6',
+    port: '6667'
   };
 
   var rpc = new RpcClient(config);

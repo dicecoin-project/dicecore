@@ -6,6 +6,7 @@ var run = function() {
   var Peer = bitcore.Peer;
   var PeerManager = bitcore.PeerManager;
 
+
   var handleBlock = function(info) {
     console.log('** Block Received **');
     console.log(info.message);
@@ -27,10 +28,10 @@ var run = function() {
   };
 
   var peerman = new PeerManager({
-    network: 'testnet'
+    network: 'startcoin'
   });
 
-  peerman.addPeer(new Peer('127.0.0.1', 18333));
+  peerman.addPeer(new Peer('127.0.0.1', 9247));
 
   peerman.on('connection', function(conn) {
     conn.on('inv', handleInv);
