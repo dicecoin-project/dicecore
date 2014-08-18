@@ -103,7 +103,7 @@ exports.startcoin = {
   bip32privateVersion: 0x0291a3e4,
   blockHashFunc: 'x11',
   genesisBlock: {
-    hash: hex('00000bb6b5dcf5e81dee7f18ebd51055228d5fb3e41cc62f4034488f8eaf4448'),
+    hash: hex('4844af8e8f4834402fc61ce4b35f8d225510d5eb187fee1de8f5dcb5b60b0000'),
     merkle_root: hex('b7828a1f391aa44b1d63cc5aecf80ba6f23f8018dcc136e4dca1859e105f9a87'),
     height: 0,
     nonce: 1494132,
