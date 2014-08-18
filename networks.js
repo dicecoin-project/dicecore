@@ -104,7 +104,7 @@ exports.startcoin = {
   blockHashFunc: 'x11',
   genesisBlock: {
     hash: hex('4844af8e8f4834402fc61ce4b35f8d225510d5eb187fee1de8f5dcb5b60b0000'),
-    merkle_root: hex('b7828a1f391aa44b1d63cc5aecf80ba6f23f8018dcc136e4dca1859e105f9a87'),
+    merkle_root: hex('879a5f109e85a1dce436c1dc18803ff2a60bf8ec5acc631d4ba41a391f8a82b7'),
     height: 0,
     nonce: 1494132,
     version: 1,
