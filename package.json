@@ -1,5 +1,5 @@
 {
-  "name": "startcore",
+  "name": "bitcore",
   "description": "Bitcoin Library",
   "version": "0.1.18",
   "author": {
@@ -43,7 +43,7 @@
   "main": "bitcore.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/bitpay/bitcore.git"
+    "url": "https://github.com/atomicjets/startcore.git"
   },
   "scripts": {
     "install": "node-gyp rebuild",

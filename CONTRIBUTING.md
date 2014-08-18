@@ -1,4 +1,4 @@
-Contributing to Startcore
+Contributing to Bitcore
 =======
 
 Are you a developer looking to learn more about bitcoin? 
