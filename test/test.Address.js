@@ -13,15 +13,15 @@ describe('Address', function() {
     should.exist(Address);
   });
   it('should be able to create instance', function() {
-    var a = new Address('1KfyjCgBSMsLqiCbakfSdeoBUqMqLUiu3T');
+    var a = new Address('sbiBUHm5nmKAypAZUaicLvMBAqGHj3GA1a');
     should.exist(a);
   });
   var data = [
-    ['1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa', true],
+    ['sbiBUHm5nmKAypAZUaicLvMBAqGHj3GA1a', true],
     ['11111111111111111111111111122222234', false], // totally invalid
     ['32QBdjycLwbDTuGafUwaU5p5GxzSLPYoF6', true],
     ['1Q1pE5vPGEEMqRcVRMbtBK842Y6Pzo6nK9', true],
-    ['1AGNa15ZQXAZUgFiqJ2i7Z2DPU2J6hW62i', true],
+    ['sQCBqDw1hTNAwBLYL8naUBXduvxs6cu59h', true],
     ['1AGNa15ZQXAZUgFiqJ2i7Z2DPU2J6hW600', false],  // bad checksum
     ['1AGNa15ZQXAZUgFiqJ2i7Z2DPU2J6hW620', false],  // bad checksum
     ['1ANNa15ZQXAZUgFiqJ2i7Z2DPU2J6hW62i', false],  // data changed, original checksum.
@@ -53,8 +53,8 @@ describe('Address', function() {
     a = new Address('1dice8EMZmqKvrGE4Qc9bUFf9PX3xaYDp');
     a.network().name.should.equal('bitcoin');
     //p2sh
-    a = new Address('3QRhucKtEn5P9i7YPxzXCqBtPJTPbRFycn');
-    a.network().name.should.equal('bitcoin');
+    a = new Address('sbiBUHm5nmKAypAZUaicLvMBAqGHj3GA1a');
+    a.network().name.should.equal('startcoin');
 
     //testnet
     a = new Address('mrPnbY1yKDBsdgbHbS7kJ8GVm8F66hWHLE');
@@ -69,8 +69,8 @@ describe('Address', function() {
   it('#isScript should work', function() {
     // invalid
     new Address('1T').isScript().should.equal(false);
-    // pubKeyHash bitcoin 
-    new Address('1KfyjCgBSMsLqiCbakfSdeoBUqMqLUiu3T').isScript().should.equal(false);
+    // pubKeyHash startcoin
+    new Address('sbiBUHm5nmKAypAZUaicLvMBAqGHj3GA1a').isScript().should.equal(false);
     // script bitcoin
     new Address('3QRhucKtEn5P9i7YPxzXCqBtPJTPbRFycn').isScript().should.equal(true);
     // pubKeyHash testnet
@@ -81,8 +81,8 @@ describe('Address', function() {
 
   describe('#fromPubKey', function() {
     it('should make pubkeyhash address from an uncompressed public key', function() {
-      var pubkey = new Buffer('04fa05ce8b25010cb6e17a30e0b66668bf083c40687547748ec330ee77adf53a42abd3d26148cbacfcf79c907ddefeb2c37f8bebc0a695ba79d634449d871de218', 'hex');
-      var hash = bitcore.util.sha256ripe160(pubkey);
+      var pubkey = new Buffer('040CD920F6F59B5DE3D808A72CB4961DE8E9209DD6BE542A791AAB601A05C88EBC7D1AE06B6C05671797FA911E418A4B9A8E9CA6019666F4C8A96817F1A51CB2E7', 'hex');
+      var hash = bitcore.util.x11Digest(pubkey);
       var addr = new Address(0, hash);
       addr.toString().should.equal(Address.fromPubKey(pubkey, 'bitcoin').toString());
     });
@@ -90,11 +90,11 @@ describe('Address', function() {
   describe('#fromKey', function() {
     it('should make this pubkeyhash address from uncompressed this public key', function() {
       var k = new Key();
-      k.private = new Buffer('43532455C88590A594D552F76DDB70EC1CFD7746F05C10CBB70B1EA9552EDF87', 'hex');
+      k.private = new Buffer('030CD920F6F59B5DE3D808A72CB4961DE8E9209DD6BE542A791AAB601A05C88EBC', 'hex');
       k.compressed = true;
       k.regenerateSync();
-      var a = Address.fromKey(k, 'bitcoin');
-      a.toString().should.equal('1L8k7WpWHMNkqVPTaZhzFU5VaWyjZEK7mD');
+      var a = Address.fromKey(k, 'startcoin');
+      a.toString().should.equal('sQCBqDw1hTNAwBLYL8naUBXduvxs6cu59h');
     });
   });
 
