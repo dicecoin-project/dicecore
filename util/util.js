@@ -65,10 +65,9 @@ var sha256ripe160 = exports.sha256ripe160 = function(data) {
 };
 
 var x11Digest = exports.x11Digest = function(data) {
-  if(x11)
+
     return x11.digest(data);
-  else
-    return sha256ripe160(data);
+
 };
 
 /**
