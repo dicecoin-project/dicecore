@@ -13,10 +13,10 @@ exports.startcoin = {
   name: 'startcoin',
   magic: hex('ffc4badf'),
   addressVersion: 0x7d, // Starts with s
-  privKeyVersion: 0xb0,
+  privKeyVersion: 0xfd,
   P2SHVersion: 0x05,
-  bip32publicVersion: 0x019da462,
-  bip32privateVersion: 0x019d9cfe,
+  bip32publicVersion: 0x0488B21E,
+  bip32privateVersion: 0x0488ADE4,
   blockHashFunc: 'x11',
   genesisBlock: {
     hash: hex('4844af8e8f4834402fc61ce4b35f8d225510d5eb187fee1de8f5dcb5b60b0000'),
