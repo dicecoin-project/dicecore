@@ -15,8 +15,8 @@ exports.startcoin = {
   addressVersion: 0x7d, // Starts with s
   privKeyVersion: 0xb0,
   P2SHVersion: 0x05,
-  bip32publicVersion: 0x0291b71e,
-  bip32privateVersion: 0x0291a3e4,
+  bip32publicVersion: 0x019da462,
+  bip32privateVersion: 0x019d9cfe,
   blockHashFunc: 'x11',
   genesisBlock: {
     hash: hex('4844af8e8f4834402fc61ce4b35f8d225510d5eb187fee1de8f5dcb5b60b0000'),
