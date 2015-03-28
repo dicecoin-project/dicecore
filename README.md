@@ -1,372 +1,111 @@
 Bitcore
 =======
 
-[![Build Status](https://travis-ci.org/bitpay/bitcore.svg?branch=master)](https://travis-ci.org/bitpay/bitcore)
+[![NPM Package](https://img.shields.io/npm/v/bitcore.svg?style=flat-square)](https://www.npmjs.org/package/bitcore)
+[![Build Status](https://img.shields.io/travis/bitpay/bitcore.svg?branch=master&style=flat-square)](https://travis-ci.org/bitpay/bitcore)
+[![Coverage Status](https://img.shields.io/coveralls/bitpay/bitcore.svg?style=flat-square)](https://coveralls.io/r/bitpay/bitcore)
 
-A pure, powerful core for your bitcoin project.
 
-Bitcore is a complete, native interface to the Bitcoin network, and provides the core functionality needed to develop apps for bitcoin.
+A pure and powerful JavaScript Bitcoin library.
 
-#Principles
+## Principles
 
 Bitcoin is a powerful new peer-to-peer platform for the next generation of financial technology. The decentralized nature of the Bitcoin network allows for highly resilient bitcoin infrastructure, and the developer community needs reliable, open-source tools to implement bitcoin apps and services.
 
-**Bitcore unchains developers from fallible, centralized APIs, and provides the tools to interact with the real Bitcoin network.**
-
-#Get Started
-
-Bitcore runs on [node](http://nodejs.org/), and can be installed via [npm](https://npmjs.org/):
+## Get Started
 
 ```
 npm install bitcore
 ```
 
-It is a collection of objects useful to bitcoin applications; class-like idioms are enabled via [Soop](https://github.com/bitpay/soop). In most cases, a developer will require the object's class directly. For instance:
+Using it in Node.js:
 
-```
+```javascript
 var bitcore = require('bitcore');
-var Address = bitcore.Address;
-var Transaction = bitcore.Transaction;
-var PeerManager = bitcore.PeerManager;
+
+assert(bitcore.Address.isValid('126vMmY1fyznpZiFTTnty3cm1Rw8wuheev'));
+var simpleTx = new bitcore.Transaction();
+var simpleTx.from(unspent).to(address, amount);
+simpleTx.sign(privateKey);
 ```
 
-#Examples
+## Documentation
 
-Some examples are provided at the [examples](/examples) path. Here are some snippets:
+The complete docs are hosted here: [bitcore documentation](http://bitcore.io/guide/). There's also a [bitcore API reference](http://bitcore.io/api/) available generated from the JSDocs of the project, where you'll find low-level details on each bitcore utility.
 
-## Validating an address
+[Read the Developer Guide](http://bitcore.io/guide/)
 
-Validating a Bitcoin address:
+[Read the API Reference](http://bitcore.io/api/)
 
-```js
-var bitcore = require('bitcore');
-var Address = bitcore.Address;
+To get community assistance and ask for help with implementation questions, please use our [community forums](http://bitpaylabs.com/c/bitcore).
 
-var addrs = [
-  '1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa',
-  '1A1zP1eP5QGefi2DMPTfTL5SLmv7Dixxxx',
-  'A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa',
-  '1600 Pennsylvania Ave NW',
-].map(function(addr) {
-  return new Address(addr);
-});
+## Examples
 
-addrs.forEach(function(addr) {
-  var valid = addr.isValid();
-  console.log(addr.data + ' is ' + (valid ? '' : 'not ') + 'valid');
-});
+* [Generate a random address](https://github.com/bitpay/bitcore/blob/master/docs/examples.md#generate-a-random-address)
+* [Generate a address from a SHA256 hash](https://github.com/bitpay/bitcore/blob/master/docs/examples.md#generate-a-address-from-a-sha256-hash)
+* [Import an address via WIF](https://github.com/bitpay/bitcore/blob/master/docs/examples.md#import-an-address-via-wif)
+* [Create a Transaction](https://github.com/bitpay/bitcore/blob/master/docs/examples.md#create-a-transaction)
+* [Sign a Bitcoin message](https://github.com/bitpay/bitcore/blob/master/docs/examples.md#sign-a-bitcoin-message)
+* [Verify a Bitcoin message](https://github.com/bitpay/bitcore/blob/master/docs/examples.md#verify-a-bitcoin-message)
+* [Create an OP RETURN transaction](https://github.com/bitpay/bitcore/blob/master/docs/examples.md#create-an-op-return-transaction)
+* [Create a 2-of-3 multisig P2SH address](https://github.com/bitpay/bitcore/blob/master/docs/examples.md#create-a-2-of-3-multisig-p2sh-address)
+* [Spend from a 2-of-2 multisig P2SH address](https://github.com/bitpay/bitcore/blob/master/docs/examples.md#spend-from-a-2-of-2-multisig-p2sh-address)
+
+
+## Modules
+This module provides bitcoin's core features. Other features and protocol extensions are built into separate modules. Here is a list of official bitcore modules:
+
+Module | Version | Building | Coverage
+-------|---------|----------|---------
+<a href="http://github.com/bitpay/bitcore-payment-protocol"><img src="http://bitcore.io/css/images/bitcore-payment-protocol.svg" alt="bitcore-payment-protocol" height="28"></a> | [![NPM Package](https://img.shields.io/npm/v/bitcore-payment-protocol.svg?style=flat-square)](https://www.npmjs.org/package/bitcore-payment-protocol) | [![Build Status](https://img.shields.io/travis/bitpay/bitcore-payment-protocol.svg?branch=master&style=flat-square)](https://travis-ci.org/bitpay/bitcore-payment-protocol) | [![Coverage Status](https://img.shields.io/coveralls/bitpay/bitcore-payment-protocol.svg?style=flat-square)](https://coveralls.io/r/bitpay/bitcore-payment-protocol)
+<a href="http://github.com/bitpay/bitcore-p2p"><img src="http://bitcore.io/css/images/bitcore-p2p.svg" alt="bitcore-p2p" height="28"></a> | [![NPM Package](https://img.shields.io/npm/v/bitcore-p2p.svg?style=flat-square)](https://www.npmjs.org/package/bitcore-p2p) | [![Build Status](https://img.shields.io/travis/bitpay/bitcore-p2p.svg?branch=master&style=flat-square)](https://travis-ci.org/bitpay/bitcore-p2p) | [![Coverage Status](https://img.shields.io/coveralls/bitpay/bitcore-p2p.svg?style=flat-square)](https://coveralls.io/r/bitpay/bitcore-p2p?branch=master)
+<a href="http://github.com/bitpay/bitcore-mnemonic"><img src="http://bitcore.io/css/images/bitcore-mnemonic.svg" alt="bitcore-mnemonic" height="28"></a> | [![NPM Package](https://img.shields.io/npm/v/bitcore-mnemonic.svg?style=flat-square)](https://www.npmjs.org/package/bitcore-mnemonic) |  [![Build Status](https://img.shields.io/travis/bitpay/bitcore-mnemonic.svg?branch=master&style=flat-square)](https://travis-ci.org/bitpay/bitcore-mnemonic) | [![Coverage Status](https://img.shields.io/coveralls/bitpay/bitcore-mnemonic.svg?style=flat-square)](https://coveralls.io/r/bitpay/bitcore-mnemonic)
+<a href="http://github.com/bitpay/bitcore-ecies"><img src="http://bitcore.io/css/images/bitcore-ecies.svg" alt="bitcore-ecies" height="25"></a> | [![NPM Package](https://img.shields.io/npm/v/bitcore-ecies.svg?style=flat-square)](https://www.npmjs.org/package/bitcore-ecies) | [![Build Status](https://img.shields.io/travis/bitpay/bitcore-ecies.svg?branch=master&style=flat-square)](https://travis-ci.org/bitpay/bitcore-ecies) | [![Coverage Status](https://img.shields.io/coveralls/bitpay/bitcore-ecies.svg?style=flat-square)](https://coveralls.io/r/bitpay/bitcore-ecies)
+<a href="http://github.com/bitpay/bitcore-channel"><img src="http://bitcore.io/css/images/bitcore-channel.svg" alt="bitcore-channel" height="28"></a> | [![NPM Package](https://img.shields.io/npm/v/bitcore-channel.svg?style=flat-square)](https://www.npmjs.org/package/bitcore-channel) | [![Build Status](https://img.shields.io/travis/bitpay/bitcore-channel.svg?branch=master&style=flat-square)](https://travis-ci.org/bitpay/bitcore-channel) | [![Coverage Status](https://img.shields.io/coveralls/bitpay/bitcore-channel.svg?style=flat-square)](https://coveralls.io/r/bitpay/bitcore-channel)
+<a href="http://github.com/bitpay/bitcore-explorers"><img src="http://bitcore.io/css/images/bitcore-explorers.svg" alt="bitcore-explorers" height="28"></a> | [![NPM Package](https://img.shields.io/npm/v/bitcore-explorers.svg?style=flat-square)](https://www.npmjs.org/package/bitcore-explorers) | [![Build Status](https://img.shields.io/travis/bitpay/bitcore-explorers.svg?branch=master&style=flat-square)](https://travis-ci.org/bitpay/bitcore-explorers) | [![Coverage Status](https://img.shields.io/coveralls/bitpay/bitcore-explorers.svg?style=flat-square)](https://coveralls.io/r/bitpay/bitcore-explorers)
+<a href="http://github.com/bitpay/bitcore-message"><img src="http://bitcore.io/css/images/bitcore-message.svg" alt="bitcore-message" height="28"></a> | [![NPM Package](https://img.shields.io/npm/v/bitcore-message.svg?style=flat-square)](https://www.npmjs.org/package/bitcore-message) | [![Build Status](https://img.shields.io/travis/bitpay/bitcore-message.svg?branch=master&style=flat-square)](https://travis-ci.org/bitpay/bitcore-message) | [![Coverage Status](https://img.shields.io/coveralls/bitpay/bitcore-message.svg?style=flat-square)](https://coveralls.io/r/bitpay/bitcore-message)
+
+## Security
+
+We're using Bitcore in production, as are [many others](http://bitcore.io#projects), but please use common sense when doing anything related to finances! We take no responsibility for your implementation decisions.
+
+If you find a security issue, please email security@bitpay.com.
+
+## Contributing
+
+Please send pull requests for bug fixes, code optimization, and ideas for improvement. For more information on how to contribute, please refer to our [CONTRIBUTING](https://github.com/bitpay/bitcore/blob/master/CONTRIBUTING.md) file. 
+
+## Building the Browser Bundle
+
+To build bitcore full bundle for the browser:
+
+```sh
+gulp browser
 ```
 
-## Monitoring Blocks and Transactions
+This will generate files named `bitcore.js` and `bitcore.min.js`.
 
-For this example you need a running bitcoind instance.
+You can also use our pre-generated files, provided for each release along with a PGP signature by one of the project's main contributors. To get them, checkout a release commit (for example, https://github.com/bitpay/bitcore/commit/2670cd1ac5ec1742aae0599e1583c063415959ff for v0.10.4).
 
-```js
-  var bitcore = require('../bitcore');
-  var Peer = bitcore.Peer;
-  var PeerManager = bitcore.PeerManager;
-
-  var handleBlock = function(info) {
-    console.log('** Block Received **');
-    console.log(info.message);
-  };
-
-  var handleTx = function(info) {
-    var tx = info.message.tx.getStandardizedObject();
-
-    console.log('** TX Received **');
-    console.log(tx);
-  };
-
-  var handleInv = function(info) {
-    console.log('** Inv **');
-    console.log(info.message);
-
-    var invs = info.message.invs;
-    info.conn.sendGetData(invs);
-  };
-
-  var peerman = new PeerManager({
-    network: 'testnet'
-  });
-
-  peerman.addPeer(new Peer('127.0.0.1', 18333));
-
-  peerman.on('connection', function(conn) {
-    conn.on('inv', handleInv);
-    conn.on('block', handleBlock);
-    conn.on('tx', handleTx);
-  });
-
-  peerman.start();
-```
-
-PeerManager will emit the following events: 'version', 'verack', 'addr', 'getaddr', 'error' 'disconnect'; and will relay events like: 'tx', 'block', 'inv'. Please see  [PeerManager.js](PeerManager.js), [Peer.js](Peer.js) and [Connection.js](Connection.js)
-
-## Consuming bitcoind RPC
-
-For this example you need a running bitcoind instance with RPC enabled.
-
-```js
-var bitcore = require('bitcore');
-var RpcClient = bitcore.RpcClient;
-var hash = '0000000000b6288775bbd326bedf324ca8717a15191da58391535408205aada4';
-
-var config = {
-  protocol: 'http',
-  user: 'user',
-  pass: 'pass',
-  host: '127.0.0.1',
-  port: '18332',
-};
-
-var rpc = new RpcClient(config);
-
-rpc.getBlock(hash, function(err, ret) {
-  if (err) {
-    console.error('An error occured fetching block', hash);
-    console.error(err);
-    return;
-  }
-  console.log(ret);
-});
-```
-
-Check the list of all supported RPC call at [RpcClient.js](lib/RpcClient.js)
-
-## Creating and sending a Transaction through P2P
-
-The fee of the transaction can be given in `opts` or it will be determined 
-by the transaction size. Documentation on the parameters of `TransactionBuilder`
-can be found on the source file.
-
-```js
-  var bitcore = require('bitcore');
-  var Peer = bitcore.Peer;
-  var TransactionBuilder = bitcore.TransactionBuilder;
-  var PeerManager = bitcore.PeerManager;
-
-  // Unspent transactions can be found via the insight.bitcore.io or blockchain.info APIs
-  var unspent = [{
-      'txid': '707108b5ba4f78dc951df4647a03365bf36432ea57fb641676045c5044daaea7',
-      'vout': 0,
-      'address': 'n3QDC7DzsMmN4mcyp3k7XGPX7zFXXHG387',
-      'scriptPubKey': '76a914f00c4a92ee2314ab08ac0283dc8d07d9bf2be32388ac',
-      'amount': 0.12345600,
-      'confirmations': 43537
-    }, {
-      'txid': '87a158d32833cb555aea27b6a21af569ccaeb8f9b19691e05f1e6c2b3440bdb3',
-      'vout': 1,
-      'address': 'mxdrp9s4mVxS9X4RBYiLe99v59V81XA5C3',
-      'scriptPubKey': '76a914bbc87986da6b17c7876db4efacf59a95e14f6cf588ac',
-      'amount': 0.05749800,
-      'confirmations': 43536
-    }
-
-  ];
-
-  // Private keys in WIF format (see TransactionBuilder.js for other options)
-  var keys = [
-    'cQA75LXhV5JkMT8wkkqjR87SnHK4doh3c21p7PAd5tp8tc1tRBAY',
-    'cRz85dz9AiDieRpEwoucfXXQa1jdHHghcv6YnnVVGZ3MQyR1X4u2',
-    'cSq7yo4fvsbMyWVN945VUGUWMaSazZPWqBVJZyoGsHmNq6W4HVBV',
-    'cPa87VgwZfowGZYaEenoQeJgRfKW6PhZ1R65EHTkN1K19cSvc92G',
-    'cPQ9DSbBRLva9av5nqeF5AGrh3dsdW8p2E5jS4P8bDWZAoQTeeKB'
-  ];
-
-  var peerman = new PeerManager({
-    network: 'testnet'
-  });
-  peerman.addPeer(new Peer('127.0.0.1', 18333));
-
-  peerman.on('connect', function() {
-    var conn = peerman.getActiveConnection();
-    if (conn) {
-      // define transaction output
-      var outs = [{
-        address: 'mhNCT9TwZAGF1tLPpZdqfkTmtBkY282YDW',
-        amount: 0.1337
-      }];
-      // set change address
-      var opts = {
-        remainderOut: {
-          address: 'n4g2TFaQo8UgedwpkYdcQFF6xE2Ei9Czvy'
-        }
-      };
-      var tx = new TransactionBuilder(opts)
-        .setUnspent(unspent)
-        .setOutputs(outs)
-        .sign(keys)
-        .build();
-
-      /* Create and signing can be done in multiple steps:
-       *
-       *  var builder = new bitcore.TransactionBuilder(opts)
-       *                .setUnspent(utxos)
-       *                .setOutputs(outs);
-       *
-       *  // Sign with the first key
-       *  builder.sign(key1);
-       *  var tx = builder.build(); // Partially signed transaction
-       *
-       *  // Sign with the second key
-       *  builder.sign(key2);
-       *  if (builder.isFullySigned()){
-       *   var tx = builder.build();
-       *  }
-       *
-       *  var selectedUnspent = build.getSelectedUnspent(); // Retrieve selected unspent outputs from the transaction
-       */
-
-      var txid = tx.getHash().toString('hex');
-      console.log('Created transaction with txid '+txid);
-      var raw_tx = tx.serialize().toString('hex');
-      console.log('Transaction raw hex dump:');
-      console.log('-------------------------------------');
-      console.log(raw_tx);
-      console.log('-------------------------------------');
-      // finally, send transaction to the bitcoin network
-      conn.sendTx(tx);
-
-      // for now, the network won't respond in any case
-      // (transaction accepted, transaction rejected)
-      // in the future, we may listen to 'reject' message
-      // see https://gist.github.com/gavinandresen/7079034
-    }
-  });
-
-  peerman.start();
-```
-
-## Parsing a Script
-
-Gets an address strings from a ScriptPubKey Buffer
-
-```js
-var bitcore = require('bitcore');
-var Address = bitcore.Address;
-var coinUtil = bitcore.util;
-var Script = bitcore.Script;
-var network = bitcore.networks.testnet;
-
-var getAddrStr = function(s) {
-  var addrStrs = [];
-  var type = s.classify();
-  var addr;
-
-  switch (type) {
-    case Script.TX_PUBKEY:
-      var chunk = s.captureOne();
-      addr = new Address(network.addressVersion, coinUtil.sha256ripe160(chunk));
-      addrStrs.push(addr.toString());
-      break;
-    case Script.TX_PUBKEYHASH:
-      addr = new Address(network.addressVersion, s.captureOne());
-      addrStrs.push(addr.toString());
-      break;
-    case Script.TX_SCRIPTHASH:
-      addr = new Address(network.P2SHVersion, s.captureOne());
-      addrStrs.push(addr.toString());
-      break;
-    case Script.TX_MULTISIG:
-      var chunks = s.capture();
-      chunks.forEach(function(chunk) {
-        var a = new Address(network.addressVersion, coinUtil.sha256ripe160(chunk));
-        addrStrs.push(a.toString());
-      });
-      break;
-    case Script.TX_UNKNOWN:
-      console.log('tx type unkown');
-      break;
-  }
-  return addrStrs;
-};
-
-var script = 'DUP HASH160 0x14 0x3744841e13b90b4aca16fe793a7f88da3a23cc71 EQUALVERIFY CHECKSIG';
-var s = Script.fromHumanReadable(script);
-console.log(getAddrStr(s)[0]); // mkZBYBiq6DNoQEKakpMJegyDbw2YiNQnHT
-```
-
-#Security
-
-Please use at your own risk.
-
-Bitcore is still under heavy development and not quite ready for "drop-in" production use. If you find a security issue, please email security@bitcore.io.
-
-#Contributing
-
-Bitcore needs some developer love. Please send pull requests for bug fixes, code optimization, and ideas for improvement.
-
-#Browser support
-
-## Building the browser bundle
-
-To build bitcore full bundle for the browser (this is automatically executed after you run `npm install`):
-
-```
-node browser/build.js -a
-```
-
-This will generate a `browser/bundle.js` file which you can include in your HTML to use bitcore in the browser.
-
-##Example browser usage
-
-From example/simple.html
-```
-<!DOCTYPE html>
-<html>
-  <body>
-    <script src="../browser/bundle.js"></script>
-    <script>
-      var bitcore = require('bitcore');
-      var Address = bitcore.Address;
-      var a = new Address('1KerhGhLn3SYBEQwby7VyVMWf16fXQUj5d');
-      console.log('1KerhGhLn3SYBEQwby7VyVMWf16fXQUj5d is valid? '+a.isValid());
-    </script>
-  </body>
-</html>
-```
-
-You can check a more complex usage example at examples/example.html.
-
-## Generating a customized browser bundle
-
-To generate a customized bitcore bundle, you can specify which submodules you want to include in it with the -s option:
-
-```
-node browser/build.js -s Transaction,Address
-```
-
-This will generate a `browser/bundle.js` containing only the Transaction and Address class, with all their dependencies.  Use this option if you are not using the whole bitcore library, to optimize the bundle size, script loading time, and general resource usage.
+To verify signatures, use the following PGP keys:
+- @maraoz: https://pgp.mit.edu/pks/lookup?op=get&search=0x64F3727BFE0B3196
+- @eordano: https://pgp.mit.edu/pks/lookup?op=get&search=0x00BD4BAF1DEEAC20
+- @yemel: https://pgp.mit.edu/pks/lookup?op=get&search=0xB4A468A6F14B6843
+- @braydonf: https://pgp.mit.edu/pks/lookup?op=get&search=0x9BBF07CAC07A276D
 
 ## Tests
 
-Run tests in node:
+Run all the tests:
 
-```
-mocha
-```
-
-Or generate tests in the browser:
-
-```
-grunt shell
+```sh
+gulp test
 ```
 
-And then open test/index.html in your browser.
+You can also run just the NodeJS tests with `gulp test:node`, just the browser tests with `gulp test:browser`
+or create a test coverage report (you can open `coverage/lcov-report/index.html` to visualize it) with `gulp coverage`.
 
-To run the code coverage report:
+## License
 
-```
-npm run-script coverage
-```
+Code released under [the MIT license](https://github.com/bitpay/bitcore/blob/master/LICENSE).
 
-And then open coverage/lcov-report/index.html in your browser.
-
-#License
-
-**Code released under [the MIT license](https://github.com/bitpay/bitcore/blob/master/LICENSE).**
-
-Copyright 2013-2014 BitPay, Inc. Bitcore is a trademark maintained by BitPay, Inc.
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/bitpay/bitcore/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+Copyright 2013-2015 BitPay, Inc. Bitcore is a trademark maintained by BitPay, Inc.
