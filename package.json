@@ -73,7 +73,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/bitpay/bitcore.git"
+    "url": "https://github.com/atomicjets/startcore.git"
   },
   "browser": {
     "request": "browser-request"
@@ -85,7 +85,8 @@
     "hash.js": "=0.3.2",
     "inherits": "=2.0.1",
     "lodash": "=2.4.1",
-    "sha512": "=0.0.1"
+    "sha512": "=0.0.1",
+    "x11-hash": "0.0.2"
   },
   "devDependencies": {
     "bitcore-build": "bitpay/bitcore-build",
