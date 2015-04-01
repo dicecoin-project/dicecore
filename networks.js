@@ -35,7 +35,6 @@ exports.startcoin = {
 };
 
 exports.mainnet = exports.startcoin;
-
-
+exports.livenet = exports.startcoin;
 
 exports.supportedNetnames = ['startcoin'];
