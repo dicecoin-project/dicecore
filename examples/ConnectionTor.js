@@ -3,7 +3,7 @@ var Connection = require('../lib/Connection');
 var dns        = require('dns');
 
 // get a peer from dns seed
-dns.resolve('dnsseed.startcoin.org', function(err, seeds) {
+dns.resolve('dnsseed.dicecoin.info', function(err, seeds) {
   // use the first peer
   var peer = new Peer(seeds[0], 9247);
 

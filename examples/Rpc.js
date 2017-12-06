@@ -8,7 +8,7 @@ var run = function() {
 
   var config = {
     protocol: 'http',
-    user: 'startcoinrpc',
+    user: 'dicecoinrpc',
     pass: 'password',
     host: '10.211.55.6',
     port: '6667'

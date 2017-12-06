@@ -28,7 +28,7 @@ var run = function() {
   };
 
   var peerman = new PeerManager({
-    network: 'startcoin'
+    network: 'dicecoin'
   });
 
   peerman.addPeer(new Peer('127.0.0.1', 9247));

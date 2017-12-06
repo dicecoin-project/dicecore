@@ -60,7 +60,7 @@ console.log('');
 var b = Armory.fromMasterPublicKey(mpk).next();
 
 for (var i = 0; i < 5; i++) {
-  console.log(Address.fromPubKey(b.pubkey, 'startcoin').as('base58'));
+  console.log(Address.fromPubKey(b.pubkey, 'dicecoin').as('base58'));
   b = b.next();
 }
 
