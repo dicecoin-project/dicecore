@@ -43,7 +43,7 @@
   "main": "bitcore.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/atomicjets/startcore.git"
+    "url": "https://github.com/dicecoin-project/dicecore.git"
   },
   "scripts": {
     "install": "node-gyp rebuild",

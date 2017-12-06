@@ -1,4 +1,4 @@
 module.exports = {
-  network: 'startcoin',
+  network: 'dicecoin',
   logger: 'normal' // none, normal, debug
 };

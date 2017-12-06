@@ -24,12 +24,12 @@ docs
 
 .idea/scopes/scope_settings.xml
 
-.idea/startcore.iml
+.idea/dicecore.iml
 
 .idea/vcs.xml
 
 .idea/workspace.xml
 
-.idea/libraries/startcore_node_modules.xml
+.idea/libraries/dicecore_node_modules.xml
 
 .idea/jsLibraryMappings.xml

@@ -6,13 +6,14 @@
   "authors": [
     "Ryan X. Charles (<ryan@bitpay.com>)"
   ],
-  "description": "A pure, powerful core for your bitcoin project.",
+  "description": "A pure, powerful core for dicecoin project.",
   "moduleType": [
     "globals"
   ],
   "keywords": [
     "bitcoin",
     "bitcore",
+    "dicecore",
     "btc",
     "satoshi"
   ],
