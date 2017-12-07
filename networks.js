@@ -19,8 +19,8 @@ exports.dicecoin = {
   bip32privateVersion: 0x0488ADE4,
   blockHashFunc: 'x11',
   genesisBlock: {
-    hash: hex('00000eb275fec65bf2239a08bb982d478907698f55feda665af98a512f25889c'),
-    merkle_root: hex('e93a665627dfc42be513f79dbb06a68e04423fa302e787a97b8bc862d09aa4b7'),
+    hash: hex('9c88252f518af95a66dafe558f690789472d98bb089a23f25bc6fe75b20e0000'),
+    merkle_root: hex('b7a49ad062c88b7ba987e702a33f42048ea606bb9df713e52bc4df2756663ae9'),
     height: 0,
     nonce: 5815233,
     version: 1,
